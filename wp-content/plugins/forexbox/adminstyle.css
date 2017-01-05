@@ -1,0 +1,33 @@
+.rstudia_user_title{
+width: 100%;
+padding: 5px 0;
+text-align: center;
+position: relative;
+font: bold 13px Arial;
+border: 1px solid #D9D9D9;
+background: #ececec;
+border-radius: 3px;
+color: #464646;
+box-shadow: 0 0 0 1px #FFFFFF inset;
+margin: 10px 0 0;
+}
+.plmin{
+position: absolute;
+float: none;
+width: 16px;
+height: 16px;
+top: 6px;
+right: 6px;
+cursor: pointer;
+background: url(images/plmin.png) no-repeat center top;
+}
+.plmin.act{
+top: 5px;
+right: 6px;
+background: url(images/plmin.png) no-repeat center bottom;
+}
+
+/* classed */
+.fbp_clear{
+clear: both;
+}
