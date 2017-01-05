@@ -3,13 +3,13 @@
 Plugin Name: Рейтинг форекс брокеров ForexBox
 Plugin URI: http://best-curs.info
 Description: Независимый рейтинг брокерских компаний Форекс
-Version: 1.0
-Author: best-curs.info
-Author URI: http://best-curs.info
+Version: 2.0
+Author: Dmitrii Kovalev (Remix)
+Author URI: https://www.fl.ru/users/kacevnik/
 */
 
 global $fbp_version;
-$fbp_version = '1.0';
+$fbp_version = '2.0';
 
 global $fbp_has_new;
 $fbp_has_new = get_option('fbp_version');
