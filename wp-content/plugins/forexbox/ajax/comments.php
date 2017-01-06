@@ -14,9 +14,10 @@ header('Content-Type: text/html; charset=utf-8');
 $page = intval($_POST['page'])-1;
 $lim = intval($_POST['limit']);
 $id = intval($_POST['id']);
+$type = intval($_POST['type']);
 if($id){
 $inicio = $page*$lim;
-echo get_fbp_comments_table($lim,$inicio,$id);
+echo get_fbp_comments_table($lim,$inicio,$id,$type);
 
 }
 

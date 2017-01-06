@@ -1,22 +1,24 @@
 <?php
 if( !defined( 'ABSPATH')){ exit(); }
 
-function get_fbp_comments_table($limit,$inicio,$fbid=0){
+function get_fbp_comments_table($limit,$inicio,$fbid=0,$type=3){
 
 $table = '';
 
 if($fbid){ $where=" AND fb_id='$fbid' "; }
-
+if($type <=2 ){ $type_sql = " AND crating='".$type."' ";}
 global $wpdb;
 $ncomments=array();
-$comments = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."fbp_comments WHERE cactive='1' AND cparent != '0' $where ORDER BY id desc");
+$comments = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."fbp_comments WHERE cactive='1' AND cparent != '0' ".$where.$type_sql." ORDER BY id desc");
 foreach($comments as $comm){
     $ncomments[$comm->cparent][]=$comm;
 }
+
 $s=0;
-$commentsn = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."fbp_comments WHERE cactive='1' AND cparent = '0' $where ORDER BY id desc LIMIT $inicio, $limit");
+$commentsn = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."fbp_comments WHERE cactive='1' AND cparent = '0' ".$where.$type_sql." ORDER BY id desc LIMIT $inicio, $limit");
 if(is_array($commentsn)){
-foreach($commentsn as $ncom){ $s++;
+foreach($commentsn as $ncom){ 
+$s++;
 if($ncom->crating==1){
 $cotz = '<span class="fbp_green">положительный</span>';
 } elseif($ncom->crating==2){
@@ -84,7 +86,7 @@ $table = 'Показать на странице: <a href="#" name="5" class="'.
 return $table;
 }
 
-function get_fbp_pagenavi($page,$limit,$fbid){
+function get_fbp_pagenavi($page,$limit,$fbid,$type=3){
 $table = '';
 global $wpdb;
 $pagina = intval($page); 
@@ -92,8 +94,8 @@ if (!$pagina) { $inicio=0; $pagina=1;
 } else {
     $inicio = ($pagina - 1) * $limit;
 } 
-
-$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."fbp_comments WHERE fb_id='$fbid' AND cactive='1' AND cparent = '0'");
+if($type <= 2){$type_sql = " AND crating='".$type."' ";}
+$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."fbp_comments WHERE fb_id='$fbid' AND cactive='1' $type_sql AND cparent = '0'");
 if($count > 0){
 $kol_str = ceil($count/$limit);
 } else {

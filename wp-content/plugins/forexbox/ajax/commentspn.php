@@ -14,9 +14,10 @@ header('Content-Type: text/html; charset=utf-8');
 $page = intval($_POST['page']);
 $lim = intval($_POST['limit']);
 $id = intval($_POST['id']);
+$type = intval($_POST['type']);
 if($id){
 
-echo get_fbp_pagenavi($page,$lim,$id);
+echo get_fbp_pagenavi($page,$lim,$id,$type);
 
 }
 

@@ -84,6 +84,19 @@ add_action('activate_'. FBP_PLUGIN_NAME,'fbp_plugins_activate');
 function fbp_plugins_activate(){
 	fbp_template('activate');
 }
+
+if( !function_exists('_add_my_quicktags') ){
+function _add_my_quicktags()
+{ ?>
+<script type="text/javascript">
+	QTags.addButton( 'otziv_p', 'Положительные отзывы', '[fbp_otziv_p]', '' );
+	QTags.addButton( 'otziv_n', 'Нетральные отзывы', '[fbp_otziv_n]', '' );
+	QTags.addButton( 'otziv_o', 'Отрецательные отзывы', '[fbp_otziv_o]', '' );
+</script>
+<?php }
+add_action('admin_print_footer_scripts', '_add_my_quicktags');
+}
+
 register_uninstall_hook( __FILE__, 'fbp_plugins_uninstall');
 function fbp_plugins_uninstall(){
 

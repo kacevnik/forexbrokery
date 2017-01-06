@@ -170,9 +170,10 @@ $(function(){
 	    var page = $(this).attr('href').replace('#','');
 		var lim = $(this).attr('name');
 		var id= $('#fbif_id').val();
-        $(".fbp_body_otziv").load("<?php echo FBP_PLUGIN_URL;?>ajax/comments.php", {page: page, limit: lim, id: id});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/commentspn.php", {page: page, limit: lim, id: id});	    
-	    //$(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/commentslm.php", {page: page, limit: lim, id: id});	    
+		var type= $('#fbif_id').attr('data');
+        $(".fbp_body_otziv").load("<?php echo FBP_PLUGIN_URL;?>ajax/comments.php", {page: page, limit: lim, id: id, type: type});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/commentspn.php", {page: page, limit: lim, id: id, type: type});	    
+	    //$(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/commentslm.php", {page: page, limit: lim, id: id, type: type});	    
 	
 	    return false;
 	});

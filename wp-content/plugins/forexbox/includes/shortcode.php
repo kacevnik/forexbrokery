@@ -79,6 +79,30 @@ function shortcode_fbp_otziv($atts){
 }
 add_shortcode('fbp_otziv', 'shortcode_fbp_otziv');
 
+function shortcode_fbp_otziv_p($atts){ 
+   fbp_template('shortcode/otziv_p');
+
+   global $themplate;
+   return $themplate;
+}
+add_shortcode('fbp_otziv_p', 'shortcode_fbp_otziv_p');
+
+function shortcode_fbp_otziv_n($atts){ 
+   fbp_template('shortcode/otziv_n');
+
+   global $themplate;
+   return $themplate;
+}
+add_shortcode('fbp_otziv_n', 'shortcode_fbp_otziv_n');
+
+function shortcode_fbp_otziv_o($atts){ 
+   fbp_template('shortcode/otziv_o');
+
+   global $themplate;
+   return $themplate;
+}
+add_shortcode('fbp_otziv_o', 'shortcode_fbp_otziv_o');
+
 if(FBP_PARTNERS_PROGRAMM == 'true'){
 
 function shortcode_fbp_register($atts){ 

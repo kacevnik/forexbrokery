@@ -246,7 +246,7 @@ $table .= '<div class="fbp_clear"></div>
 	$dg[3] .= '<div class="fbp_rat_result" title="Рейтинг форекс брокера '.$fb->fname.'">'. $fb->frating .'</div></div></div>';
 	    }
 		if($distable['enable']['fdc4']==1){
-	$dg[4] = '<div class="fbp_btvn hthec4"><div class="fbg_text3"><a class="fbpzol" href="'.fbp_one_link_otz($fb->fslug).'" title="Положительных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fpotz .'</a><a class="fbpgray" href="'.fbp_one_link_otz($fb->fslug).'" title="Нейтральных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fnotz .'</a><a class="fbpblue" href="'.fbp_one_link_otz($fb->fslug).'" title="Отрицательных отзывов о форекс брокере '.$fb->fname.'">'. $fb->footz .'</a></div></div>';
+	$dg[4] = '<div class="fbp_btvn hthec4"><div class="fbg_text3"><a class="fbpzol" href="'.site_url()."/otziv-p/".$fb->fslug.'" title="Положительных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fpotz .'</a><a class="fbpgray" href="'.site_url()."/otziv-n/".$fb->fslug.'" title="Нейтральных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fnotz .'</a><a class="fbpblue" href="'.site_url()."/otziv-o/".$fb->fslug.'" title="Отрицательных отзывов о форекс брокере '.$fb->fname.'">'. $fb->footz .'</a></div></div>';
 	    }
 	    if($distable['enable']['fdc5']==1){
 	$dg[5] = '<div class="fbp_btvn hthec5"><div class="fbg_graph" title="Статистика рейтинга форекс брокера '.$fb->fname.'"></div></div>';
