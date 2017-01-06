@@ -90,8 +90,8 @@ margin: 0 auto 20px;
 		.hthe7{ width: 60px;}
 		.hthec1{ width: 40px; padding: 0;}
 		.hthec2{ width: 170px;}
-		.hthec3{ width: 120px;}
-		.hthec4{ width: 68px;}
+		.hthec3{ width: 90px;}
+		.hthec4{ width: 98px;}
 		.hthec5{ width: 59px;}
 		.hthec6{ width: 40px;}
 		.hthec7{ width: 40px;}		
@@ -371,9 +371,12 @@ width: 778px;
 		padding: 22px 10px 0;
         font: 18px Arial;		
 		}
-		    .fbpzol{ color: #2fc040; margin: 0 3px; }
-			.fbpblue{ color: #ff0000; margin: 0 3px; }
-			.fbpgray{ color: #0072af; margin: 0 3px; }
+		    .fbpzol{ color: #2fc040; margin: 0 3px; text-decoration: none;}
+		    .fbpzol:hover{ color: #2fc040; text-decoration: underline;}
+			.fbpblue{ color: #ff0000; margin: 0 3px; text-decoration: none;}
+			.fbpblue:hover{ color: #ff0000; text-decoration: underline;}
+			.fbpgray{ color: #0072af; margin: 0 3px; text-decoration: none;}
+			.fbpgray:hover{ color: #0072af; text-decoration: underline;}
 
 		.fbg_delisimo{
 		width: 28px;
