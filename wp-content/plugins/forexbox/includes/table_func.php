@@ -111,6 +111,13 @@ if($asc=='desc' and $rcl){
 return $table;
 }
 
+function kdv_get_reiting($id){
+	global $wpdb;
+	$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+	$count = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+	return $res = number_format($sum/$count, 1,'.','');
+}
+
 function get_forex_home_table($page,$limit,$asc,$order,$search=''){
 global $wpdb;
 
@@ -243,7 +250,7 @@ $table .= '<div class="fbp_clear"></div>
 		$claw = 'checkfbpaut';
 		}
 	
-	$dg[3] .= '<div class="fbp_rat_result" title="Рейтинг форекс брокера '.$fb->fname.'">'. $fb->frating .'</div></div></div>';
+	$dg[3] .= '<div class="fbp_rat_result" title="Рейтинг форекс брокера '.$fb->fname.'">'. kdv_get_reiting($fb->id).'</div></div></div>';
 	    }
 		if($distable['enable']['fdc4']==1){
 	$dg[4] = '<div class="fbp_btvn hthec4"><div class="fbg_text3"><a class="fbpzol" href="'.site_url()."/otziv-p/".$fb->fslug.'" title="Положительных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fpotz .'</a><a class="fbpgray" href="'.site_url()."/otziv-n/".$fb->fslug.'" title="Нейтральных отзывов о форекс брокере '.$fb->fname.'">'. $fb->fnotz .'</a><a class="fbpblue" href="'.site_url()."/otziv-o/".$fb->fslug.'" title="Отрицательных отзывов о форекс брокере '.$fb->fname.'">'. $fb->footz .'</a></div></div>';
