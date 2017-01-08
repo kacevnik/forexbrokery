@@ -113,16 +113,20 @@ return $table;
 
 function kdv_get_reiting($id){
 	global $wpdb;
-	$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
-	$count = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
-	if($sum == 0 || $count == 0){
-		return 0;
+	$user_reiting = get_option('user_reiting_'.$id);
+	if(isset($user_reiting) && $user_reiting!=0){
+		return $user_reiting;
 	}else{
-		$reiting = $sum/$count;
-		$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET frating='$reiting' WHERE id ='$id'");
-		return $res = number_format($reiting, 1,'.','');
+		$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+		$count = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+		if($sum == 0 || $count == 0){
+			return 0;
+		}else{
+			$reiting = $sum/$count;
+			$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET frating='$reiting' WHERE id ='$id'");
+			return $res = number_format($reiting, 1,'.','');
+		}
 	}
-
 }
 
 function get_forex_home_table($page,$limit,$asc,$order,$search=''){
