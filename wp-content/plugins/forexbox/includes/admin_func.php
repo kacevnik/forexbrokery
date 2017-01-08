@@ -50,7 +50,7 @@ if(is_array($automats)){
 				<input type="text" class="regular-text" name="partlink['.$automat->id.']" value="'.$automat->fplink.'" />
 			</td>			
 			<td style="padding-top: 7px;" align="left">
-				'. $automat->frating .'				
+				<strong>'. number_format($automat->frating, 1,'.','').'</strong>				
 			</td>				
 			<td style="text-align: right;">
 				<a href="#" name="'.$automat->id.'" title="Удалить" class="actionlink delete_action"></a>											
@@ -178,11 +178,11 @@ function fbp_rselected($one,$two){
    if($one==$two){ echo 'selected="selected"'; }
 }
 
-function forexbox_inputbig($name, $title,$default=''){
+function forexbox_inputbig($name, $title,$default='',$after=''){
 ?>
     <tr>
 		<th><label for="fbp_<?php echo $name;?>"><?php echo $title;?></label></th>
-	    <td><input type="text" id="fbp_<?php echo $name;?>" class="regular-text" value="<?php echo $default;?>" name="<?php echo $name;?>" /></td>
+	    <td><input type="text" id="fbp_<?php echo $name;?>" class="regular-text" value="<?php echo $default;?>" name="<?php echo $name;?>" /><?php echo $after; ?></td>
 	</tr>
 <?php
 }

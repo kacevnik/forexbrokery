@@ -8,6 +8,12 @@ if($id){
 $fbp = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."forex_broker WHERE id='$id'");
 $fbpid = $fbp->id;
 }	
+
+if(get_option('user_reiting_'.$id)){
+	$reiting = get_option('user_reiting_'.$id);
+}else{
+	$reiting = 0;
+}
 ?>
 
 <form action="<?php echo FBP_PLUGIN_URL;?>ajax/addeditfb.php" method="POST">
@@ -19,7 +25,8 @@ $fbpid = $fbp->id;
 		    forexbox_uploader('flogo','Логотип',$fbp->flogo);
 		    forexbox_inputbig('fname',fbp_orili('Название',$distable['table1']['ftab20']),$fbp->fname);
 			forexbox_inputbig('fsite',fbp_orili('Официальный сайт',$distable['table1']['ftab13']),$fbp->fsite);
-			forexbox_inputbig('fnews','Ссылка на новости',$fbp->fnews);		
+			forexbox_inputbig('fnews','Ссылка на новости',$fbp->fnews);	
+			forexbox_inputbig('fuserreiting','Рейтинг',$reiting, '  Реальный рейтинг: '.number_format($fbp->frating, 1,'.',''));
 			forexbox_select('fstatus',fbp_orili('Статус',$distable['table1']['ftab1']),array('0'=>'нет','1'=>'новый','2'=>'рекомендуемый'),$fbp->fstatus);
 			forexbox_select_god('fgod',fbp_orili('Год основания',$distable['table1']['ftab6']),$fbp->fgod);
 			forexbox_inputbig('flicense',fbp_orili('Лицензия',$distable['table1']['ftab4']),$fbp->flicense);
