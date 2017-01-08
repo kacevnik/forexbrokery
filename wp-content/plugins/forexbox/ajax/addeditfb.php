@@ -14,7 +14,8 @@ header('Content-Type: text/html; charset=utf-8');
 if(current_user_can('administrator')){
 
     $id = intval($_POST['fbpid']);
-   
+    $user_reiting = fbp_cleared_post($_POST['fuserreiting']);
+
     $narr=array();
     $narr['flogo']= fbp_cleared_post($_POST['flogo']);
     $narr['fname']= fbp_cleared_post($_POST['fname']);
@@ -42,7 +43,13 @@ if(current_user_can('administrator')){
     $narr['fvkl']= intval($_POST['fvkl']);
    
     if($narr['fname']){
-   
+    
+    if(isset($user_reiting) && $user_reiting!=0){
+        update_option('user_reiting_'.$id, $user_reiting);
+    }else if($user_reiting == 0){
+        delete_option('user_reiting_'.$id);
+    }
+
     if($id){ 
     $cup = '';
     foreach($narr as $ckey=>$cvalue){
