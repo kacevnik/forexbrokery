@@ -115,7 +115,11 @@ function kdv_get_reiting($id){
 	global $wpdb;
 	$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
 	$count = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
-	return $res = number_format($sum/$count, 1,'.','');
+	if($sum == 0 || $count == 0){
+		return 0;
+	}else{
+		return $res = number_format($sum/$count, 1,'.','');
+	}
 }
 
 function get_forex_home_table($page,$limit,$asc,$order,$search=''){
