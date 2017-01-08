@@ -118,8 +118,11 @@ function kdv_get_reiting($id){
 	if($sum == 0 || $count == 0){
 		return 0;
 	}else{
-		return $res = number_format($sum/$count, 1,'.','');
+		$reiting = $sum/$count;
+		$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET frating='$reiting' WHERE id ='$id'");
+		return $res = number_format($reiting, 1,'.','');
 	}
+
 }
 
 function get_forex_home_table($page,$limit,$asc,$order,$search=''){
