@@ -60,7 +60,7 @@ class toplider_Widget extends WP_Widget {
 					</ul>
 			    </div>
 				<?php } ?>
-				<div class="fbp_rat_result"><?php echo $fb->frating;?></div>
+				<div class="fbp_rat_result"><?php echo kdv_get_reiting($fb->id);?></div>
 				</div>
 		    </div>		
 		    <div class="fbp_clear"></div>
