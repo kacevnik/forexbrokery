@@ -22,7 +22,8 @@ $dej = intval($_POST['d']);
 	        $wpdb->query("DELETE FROM ".$wpdb->prefix."forex_broker WHERE id = '$id'");
 	        $wpdb->query("DELETE FROM ".$wpdb->prefix."fbp_rating WHERE fb_id = '$id'");
 	        $wpdb->query("DELETE FROM ".$wpdb->prefix."fbp_comments WHERE fb_id = '$id'");
-
+	        delete_option('user_reiting_'.$id);//удаление пользовательского рейтинга
+	        
 	   $log['otvet']=10; /* всё хорошо */ 
 	   $log['table']=get_fb_admin_table();
        
