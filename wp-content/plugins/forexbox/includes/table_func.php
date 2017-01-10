@@ -115,6 +115,7 @@ function kdv_get_reiting($id){
 	global $wpdb;
 	$user_reiting = get_option('user_reiting_'.$id);
 	if(isset($user_reiting) && $user_reiting!=0){
+		$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET frating='$user_reiting' WHERE id ='$id'");
 		return $user_reiting;
 	}else{
 		$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
@@ -321,14 +322,14 @@ $table .= '<div class="fbp_clear"></div>
 		        <div class="fbpbtleft">
 				    <div class="fbplinebt"><a href="'. fbp_permalink($fb->id) .'" target="_blank">'. $fb->fsite .'</a></div>
 				    '. $nnbr .'
-					<div class="fbplinebt"><a href="'. fbp_one_link_otz($fb->fslug) .'">Все отзывы пользователей</a></div>
+					<div class="fbplinebt"><a href="'.site_url()."/fbpotziv/".$fb->fslug.'">Все отзывы пользователей</a></div>
 				</div>
 		        <div class="fbpbtright">
 				      <div class="fbp_obvodka">
-					      <a href="'. fbp_one_link($fb->fslug) .'" class="fbp_yelowkn">Полная информация</a>
+					      <a href="'.site_url()."/forex_broker/".$fb->fslug.'" class="fbp_yelowkn">Полная информация</a>
 					  </div>
 				</div>
-                    <div class="fbp_clear"></div>				
+                    <div class="fbp_clear"></div>			
 			</div>
 		</div>
 		<div class="fbpajaxshow">Подробнее</div>

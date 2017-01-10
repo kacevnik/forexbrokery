@@ -2,6 +2,17 @@
 if( !defined( 'ABSPATH')){ exit(); }
 
 /* таблица в админке */
+
+function real_reiting($id){
+	global $wpdb;
+	$sum = $wpdb->get_var("SELECT SUM(rrating) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+	$count = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."fbp_rating WHERE fb_id='$id'");
+	if($sum!=0 && $count!=0){
+		$reiting = $sum/$count;
+		return $res = number_format($reiting, 1,'.','');
+	}
+}
+
 function get_fb_admin_table(){
 
 $table ='
@@ -33,6 +44,11 @@ $automats = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."forex_broker ORDE
 if(is_array($automats)){
     if(count($automats)>0){
 	    foreach($automats as $automat){
+	    	if(get_option('user_reiting_'.$automat->id) && get_option('user_reiting_'.$automat->id) != 0){
+	    		$user_reiting = '  <strong title="Поллзовательский рейтинг">('.get_option('user_reiting_'.$automat->id).')*</strong>';
+	    	}else{
+	    		$user_reiting = '';
+	    	}
 	if($automat->fvkl==0){
 	   $link = '<a href="#" name="'.$automat->id.'" title="Включить" class="actionlink mark_action"></a>';
 	} else {
@@ -50,8 +66,8 @@ if(is_array($automats)){
 				<input type="text" class="regular-text" name="partlink['.$automat->id.']" value="'.$automat->fplink.'" />
 			</td>			
 			<td style="padding-top: 7px;" align="left">
-				<strong>'. number_format($automat->frating, 1,'.','').'</strong>				
-			</td>				
+				<strong title="Реальный рейтинг">'. real_reiting($automat->id).$user_reiting.		
+			'</td>				
 			<td style="text-align: right;">
 				<a href="#" name="'.$automat->id.'" title="Удалить" class="actionlink delete_action"></a>											
 				'. $link .'

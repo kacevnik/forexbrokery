@@ -294,17 +294,6 @@ update_option('fbp_banner_88', $banner88);
 	'ping_status' => 'closed'
 	);
 
-	$pages_content['fbpotziv'] = array(
-	'post_status' => 'publish', 
-	'post_type' => 'page',
-	'post_name' => 'otziv-p',
-	'post_author' => 1,
-	'post_title' => 'Положительные отзывы брокера',
-	'post_content' => '[fbp_otziv_p]',
-	'comment_status' => 'closed',
-	'ping_status' => 'closed'
-	);
-
 	$pages_content['fbpsravni'] = array(
 	'post_status' => 'publish', 
 	'post_type' => 'page',
@@ -318,7 +307,7 @@ update_option('fbp_banner_88', $banner88);
 		
 	$pages = get_option('fbp_pages');
 		
-	foreach(array('fbpsearch','fbpotziv','fbpsravni','fbppartners_account','fbplostpass','forex_broker','fbpprofile','fbpwithdrawal','fbppromotional','fbplist','fbpterms','fbppartners','fbppartnersfaq','otziv-p') as $name){
+	foreach(array('fbpsearch','fbpotziv','fbpsravni','fbppartners_account','fbplostpass','forex_broker','fbpprofile','fbpwithdrawal','fbppromotional','fbplist','fbpterms','fbppartners','fbppartnersfaq') as $name){
 		if(!isset($pages[$name])){
 			$pages[$name] = -1;
 		}
