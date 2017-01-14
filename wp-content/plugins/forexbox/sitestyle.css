@@ -770,14 +770,13 @@ margin: 0 0 30px 0;
     border-bottom: 3px solid #a0b7c5;
     border-left: 1px solid #e5eaed;
     border-radius: 7px;	
-    height: 170px;
     margin: 0 0 20px 0;	
 	}
 	    .fbpoh_left{
 		float: left;
-		width: 277px;
+		width: 257px;
 		height: 120px;
-		padding: 50px 0 0 0;
+		padding: 50px 10px 10px;
 		text-align: center;
 		}
 		    .fbpohimg img{
@@ -786,6 +785,7 @@ margin: 0 0 30px 0;
 			}
 			.fbpohtitle{
 			font: bold 16px Arial;
+			margin-bottom: 20px;
 			}
 			    .fbpohtitle a{
 				color: #3D4042;
@@ -797,7 +797,7 @@ margin: 0 0 30px 0;
 				}
 		.fbpohright{
 		float: left;
-		width: 500px;
+		width: 480px;
 		border-left: 1px solid #e5eaed;
 		}
 		    .fbpohgraph{
@@ -1130,6 +1130,7 @@ margin: 0 0 30px 0;
 		float: right;
 		width: 120px;
 		text-align: right;
+		margin-top: -17px;
 		}
 		.fbp_rating2{
 		width: 75px;
@@ -1172,7 +1173,9 @@ margin: 0 0 30px 0;
         text-shadow: 1px 1px 1px #fff;
         padding: 0 0 0 15px;
         font: bold 12px/34px Arial;
-        color: #09344b;			
+        color: #09344b;	
+        border-bottom-right-radius: 0px;
+    	border-bottom-left-radius: 0px;		
 		}
 	.fbp_lastoone{
 	border: 1px solid #e5eaed;
@@ -1180,6 +1183,11 @@ margin: 0 0 30px 0;
 	border-radius: 7px;
 	font: italic 12px Arial;
 	color: #6a6e71;
+	margin-bottom: 15px;
+	}
+	.lastoone_first{
+	    border-top-left-radius: 0px;
+    	border-top-right-radius: 0px;
 	}
 	    .fbp_lastoone a{
 		color: #0072af;
@@ -1191,6 +1199,7 @@ margin: 0 0 30px 0;
 		}		
 	    .fbp_lastoone.last{
 		border-bottom: 3px solid #ffd010;
+		margin-bottom: 0px;
 		}
 		.fbp_lastoone_author{
 		color: #0072af;
@@ -1204,7 +1213,7 @@ margin: 0 0 30px 0;
 		}
 		a.fbp_all_otzivlink{
 		display: block;
-		width: 104px;
+		width: 180px;
 	    height: 30px;
 		border-bottom: 1px solid #9aabb4;
         border-right: 1px solid #e3e8ea;
@@ -1219,13 +1228,17 @@ margin: 0 0 30px 0;
 		text-decoration: none;
         font: bold 12px/30px Arial;
         color: #09344b;
-		margin: 0 0 20px 150px;
+		margin: 0 0 20px 55px;
 		}
 		    a.fbp_all_otzivlink:hover{
 			color: #ff0000;
 			}
 			.hidefbpcont{
 			display: none;
+			}
+			.otz_daun{
+				margin: 10px auto;
+				width: 300px;
 			}
 /* end one broker */
 

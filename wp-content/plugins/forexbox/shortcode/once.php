@@ -48,54 +48,9 @@ global $user_ID, $themplate;
 	    <div class="fbpoh_left">
 		    <div class="fbpohimg"><a href="'. fbp_permalink($fb->id) .'" target="_blank"><img src="'. $im .'" alt="" /></a></div>
 			<div class="fbpohtitle"><a href="'. fbp_permalink($fb->id) .'" target="_blank">'. $fb->fname .'</a></div>
-		</div>
-	    <div class="fbpohright">
-		<div style="margin: 0 0 0 10px;">
-		
-        '. get_broker_graph($fbid) .'
-		
-		</div> 
-		</div>
-        <div class="fbp_clear"></div>		
-	</div>
-	
-	<div class="fbpo_body">
-	    <div class="fbpo_bodyleft">
-	        
-	        '. $fbpstatus .'
-	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle2.':</span> '. $fb->fgod .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle3.':</span> '. $fb->flicense .'</div>
-	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle4.':</span> '. $fb->fplatform .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle5.':</span> '. $fb->fsposobopl .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle6.':</span> '. $fb->fminschet .'<!--$--> </div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle7.':</span> от '. $fb->fkrplot .' до '. $fb->fkrpldo .' </div>
-	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle8.':</span> '. $fb->fminsdelka .' <!--лота--> </div>
-	        <!--<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. get_sclonenie($fb->fspred,'% пунктов', '% пункта','% пунктов') .' </div>-->
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. $fb->fspred .' </div>
-	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle10.':</span> '. $fb->fcomiss .'<!--%--> </div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle11.':</span> <a href="'. fbp_permalink($fb->id) .'" target="_blank">'. $fb->fsite .'</a></div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle12.':</span>
-                <div class="fbpobc_content">
-			     '. apply_filters('the_content', $fb->fdescription) .'
-				     <div class="fbp_clear"></div>
-				</div>
+			<div class="fbpobrkn">
+				<div class="fbpobrknvn addsravn" name="'. $fb->id .'">Добавить в сравнение</div>
 			</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle13.':</span> '. fbp_ynchange($fb->fdemo) .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle14.':</span> '. fbp_ynchange($fb->fmobile) .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle15.':</span> '. fbp_ynchange($fb->fpartner) .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle16.':</span> '. fbp_ynchange($fb->fdovupr) .'</div>
-	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle17.':</span> '. $fb->fadress .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle18.':</span> '. $fb->fbonus .'</div>
-			<div class="fbpoline"><i>* - Рейтинг не несет никакой ответственности за ошибки в предоставленной информации. Чтобы получить самую последнюю информацию о торговых условиях, пожалуйста, посетите сайт соответствующего участника.</i></div>
-	
-	    </div>
-	
-	    <div class="fbpo_bodyright">
-		
-		    <div class="fbpobrkn">
-			   <div class="fbpobrknvn addsravn" name="'. $fb->id .'">Добавить в сравнение</div>
-			</div>
-			
 			<div class="fbpobrkn_rating">
 			    <div class="fbpobrkn_ratingtit">Рейтинг:</div>
 				<div class="fbpobrkn_rating_res">'. $fb->frating .'</div>
@@ -123,7 +78,38 @@ global $user_ID, $themplate;
 			   </div>
 			   <div class="fbp_clear"></div>
 			</div>
-		
+		</div>
+	    <div class="fbpohright" style="padding: 15px 10px;">
+'. $fbpstatus .'
+	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle2.':</span> '. $fb->fgod .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle3.':</span> '. $fb->flicense .'</div>
+	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle4.':</span> '. $fb->fplatform .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle5.':</span> '. $fb->fsposobopl .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle6.':</span> '. $fb->fminschet .'<!--$--> </div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle7.':</span> от '. $fb->fkrplot .' до '. $fb->fkrpldo .' </div>
+	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle8.':</span> '. $fb->fminsdelka .' <!--лота--> </div>
+	        <!--<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. get_sclonenie($fb->fspred,'% пунктов', '% пункта','% пунктов') .' </div>-->
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. $fb->fspred .' </div>
+	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle10.':</span> '. $fb->fcomiss .'<!--%--> </div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle11.':</span> <a href="'. fbp_permalink($fb->id) .'" target="_blank">'. $fb->fsite .'</a></div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle12.':</span>
+                <div class="fbpobc_content">
+			     '. apply_filters('the_content', $fb->fdescription) .'
+				     <div class="fbp_clear"></div>
+				</div>
+			</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle13.':</span> '. fbp_ynchange($fb->fdemo) .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle14.':</span> '. fbp_ynchange($fb->fmobile) .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle15.':</span> '. fbp_ynchange($fb->fpartner) .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle16.':</span> '. fbp_ynchange($fb->fdovupr) .'</div>
+	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle17.':</span> '. $fb->fadress .'</div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle18.':</span> '. $fb->fbonus .'</div>
+			<div class="fbpoline"><i>* - Рейтинг не несет никакой ответственности за ошибки в предоставленной информации. Чтобы получить самую последнюю информацию о торговых условиях, пожалуйста, посетите сайт соответствующего участника.</i></div>
+		</div>
+        <div class="fbp_clear"></div>		
+	</div>
+	
+	<div class="fbpo_body">	
 		    <div class="fbp_lastotz">Последние отзывы</div>';
 			
 			$mnhj = get_option('fbp_config');
@@ -133,8 +119,8 @@ global $user_ID, $themplate;
 			$comments = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."fbp_comments WHERE cactive='1' AND fb_id='$fbid' ORDER BY id desc LIMIT $count");
 			$rn=0;
 			foreach($comments as $comment){ $rn++;
-
- $themplate .= '<div class="fbp_lastoone">
+				if($rn==1){$lastoone_first = ' lastoone_first';}else{$lastoone_first = '';}
+ $themplate .= '<div class="fbp_lastoone'.$lastoone_first.'">
 			    <div class="fbp_lastoone_author"><span class="fbplodate">'. get_fbp_time($comment->cdate) .'</span> '. $comment->cname .'</div>
 			    <div class="fbp_lasto_content">
 				<p>'. get_fbp_onelast_comment($comment->ctext) .'</p>
@@ -147,14 +133,11 @@ global $user_ID, $themplate;
 			    </div>';			
 			}
 
-            $themplate .='<a href="'. fbp_one_link_otz($fb->fslug) .'" class="fbp_all_otzivlink">Все отзывы</a>
+            $themplate .='<a href="'.site_url()."/fbpotziv/".$fb->fslug.'" class="fbp_all_otzivlink">Все отзывы</a>
 
-		    <div class="fbpobrkn">
+		    <div class="fbpobrkn otz_daun">
 			   <div class="fbpobrknvn2 addotziv" name="'. $fb->id .'">Оставить отзыв</div>
-			</div>			
-		
-		</div>
-	
+			</div>	
 	    <div class="fbp_clear"></div>
 	</div>
 	';
