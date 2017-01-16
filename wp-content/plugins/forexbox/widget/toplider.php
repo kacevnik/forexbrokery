@@ -45,8 +45,8 @@ class toplider_Widget extends WP_Widget {
 		       <strong><?php echo $r;?></strong>
 		    </div>
 	        <div class="fbpttwo2">
-		       <a href="<?php echo fbp_one_link($fb->fslug);?>" ><img src="<?php echo $im;?>" alt="" /></a>
-			   <div class="fbptstitle"><a href="<?php echo fbp_one_link($fb->fslug);?>" ><?php echo $fb->fname;?></a></div>
+		       <a href="<?php echo site_url(); ?>/forex_broker/<?php echo $fb->fslug; ?>" ><img src="<?php echo $im;?>" alt="" /></a>
+			   <div class="fbptstitle"><a href="<?php echo site_url(); ?>/forex_broker/<?php echo $fb->fslug; ?>" ><?php echo $fb->fname;?></a></div>
 		    </div>
 	        <div class="fbptree2">
 			    <div class="fbprating" name="<?php echo $fb->id;?>">

@@ -238,7 +238,7 @@ $table .= '<div class="fbp_clear"></div>
 	$dg[1] = '<div class="fbp_btvn hthec1"><div class="fbpbth_count">'. $ci .'</div><div class="fbp_mesto '. $scl .'"></div></div>';
 	    }
 		if($distable['enable']['fdc2']==1){
-	$dg[2] = '<div class="fbp_btvn hthec2"><div class="fbpbth_img"><a href="'. fbp_one_link($fb->fslug) .'" ><img src="'. $im .'" alt="Форекс брокер '.$fb->fname.'" title="Перейти на сайт форекс брокера '.$fb->fname.'" /></a></div><div class="fbpbth_name"><a href="'. fbp_permalink($fb->id) .'" target="_blank"  title="Перейти на сайт форекс брокера '.$fb->fname.'">'. $fb->fname .'</a></div></div>';
+	$dg[2] = '<div class="fbp_btvn hthec2"><div class="fbpbth_img"><a href="'.site_url()."/forex_broker/".$fb->fslug.'" ><img src="'. $im .'" alt="Форекс брокер '.$fb->fname.'" title="Подробнее о '.$fb->fname.'" /></a></div><div class="fbpbth_name"><a href="'.site_url()."/forex_broker/".$fb->fslug.'" target="_blank"  title="Подробнее о '.$fb->fname.'">'. $fb->fname .'</a></div></div>';
 	    }
 		if($distable['enable']['fdc3']==1){
 	$dg[3] = '<div class="fbp_btvn hthec3"><div class="fbprating" name="'. $fb->id .'">';
