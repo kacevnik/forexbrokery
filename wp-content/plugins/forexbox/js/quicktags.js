@@ -19,6 +19,9 @@ edButtons[edButtons.length] =
 new edButton('fbp_search','Поиск','[fbp_search]');
 edButtons[edButtons.length] = 
 new edButton('fbp_forex_broker','Таблица брокеров','[forex_broker]');
+edButtons[edButtons.length] = 
+new edButton('fbp_filter','Фильтр брокеров','[filter_broker]');
+
 
 
 /* Ниже редактировать ничего не нужно */

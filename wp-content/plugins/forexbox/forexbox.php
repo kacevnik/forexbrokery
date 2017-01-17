@@ -45,6 +45,117 @@ $pager = FBP_PLUGIN_DIR . "/".$page.".php";
     }
 }
 
+add_action( 'wp_enqueue_scripts', 'kdv_my_scripts_main' );
+function kdv_my_scripts_main(){
+	wp_enqueue_script( 'kdv_main', plugins_url('js/main.js', __FILE__));
+}
+
+add_action( 'wp_enqueue_scripts', 'kdv_my_scripts_ui_query' );
+function kdv_my_scripts_ui_query(){
+	wp_enqueue_script( 'kdv_ui_query', plugins_url('js/jquery-ui-1.8.21.custom.js', __FILE__));
+	wp_enqueue_style( 'kdv_ui_query_style', plugins_url('jquery-ui-1.8.21.custom.css', __FILE__));
+}
+
+add_action('wp_head', 'kdv_hook_css');
+function kdv_hook_css(){
+	echo '<style>
+	.ui-slider .ui-slider-handle {
+		cursor: pointer;
+		border: none;
+		width:24px;
+		height:24px;
+		position:absolute;
+		top:-7px;
+		margin-left:-12px;
+		z-index:200;
+		background:url('.plugins_url("images/slider-button.png", __FILE__).');
+	}
+	.ui-widget-header {
+		background-color: #c5c5c5;
+	    background: -webkit-linear-gradient(#c5c5c5, #a2a2a2);
+	    background: -o-linear-gradient(#c5c5c5, #a2a2a2);
+	    background: linear-gradient(#c5c5c5, #a2a2a2);
+		height:12px;
+		left:1px;
+		top:1px;
+		position:absolute;
+	}
+	</style>';
+}
+
+add_action('wp_footer', 'kdv_hook_js');
+function kdv_hook_js(){
+	echo '<script type="text/javascript">	
+     $( ".pleco" ).slider({
+        animate: true, // Анимация ползунка
+        range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
+        value: 100, // Значение по умолчанию.
+        min: 0, // Минимальная сумма.
+        max: 500, // Максимальная сумма.
+    	step: 25, // Шаг диапазона.
+ 
+    // Вывод диапазона в поле input
+    	      create: function() {
+        $(".pleco .ui-slider-handle").attr("data", 100);
+      },
+            change: function(event, ui) {
+            	$("#pleco").attr("value", ui.value);
+            },
+            slide: function( event, ui ) {
+        		$(".pleco .ui-slider-handle").attr("data", ui.value);
+        	}
+      
+ 		
+     });
+
+$( ".dipozit" ).slider({
+        animate: true, // Анимация ползунка
+        range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
+        value: 300, // Значение по умолчанию.
+        min: 0, // Минимальная сумма.
+        max: 1000, // Максимальная сумма.
+    	step: 25, // Шаг диапазона.
+ 
+    // Вывод диапазона в поле input
+    	      create: function() {
+        $(".dipozit .ui-slider-handle").attr("data", 300);
+      },
+            change: function(event, ui) {
+            	$("#dipozit").attr("value", ui.value);
+            },
+            slide: function( event, ui ) {
+        		$(".dipozit .ui-slider-handle").attr("data", ui.value);
+        	}
+      
+ 		
+     });
+
+
+     $( ".spred" ).slider({
+        animate: true, // Анимация ползунка
+        range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
+        value: 3, // Значение по умолчанию.
+        min: 0, // Минимальная сумма.
+        max: 5, // Максимальная сумма.
+    	step: 1, // Шаг диапазона.
+ 
+    // Вывод диапазона в поле input
+    	      create: function() {
+        $(".spred .ui-slider-handle").attr("data", 3);
+      },
+            change: function(event, ui) {
+            	$("#spred").attr("value", ui.value);
+            },
+            slide: function( event, ui ) {
+        		$(".spred .ui-slider-handle").attr("data", ui.value);
+        	}
+      
+ 		
+     });
+
+     </script>';
+}
+
 fbp_template('functions');
 fbp_template('includes/admin_func');
 fbp_template('admininterface');

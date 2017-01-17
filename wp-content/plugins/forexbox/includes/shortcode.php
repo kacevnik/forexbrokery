@@ -174,7 +174,15 @@ function shortcode_fbp_otzivs($atts){
 add_shortcode('fbp_otzivs', 'shortcode_fbp_otzivs');
 
 
-
+function shortcode_fbp_filter($atts){ 
+    global $otc;
+  $otc = intval($atts['count']); if(!$otc){$otc=6;}
+    fbp_template('shortcode/filter');
+  
+  global $themplate;
+  return $themplate;
+}
+add_shortcode('filter_broker', 'shortcode_fbp_filter');
 
 
 ?>

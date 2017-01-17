@@ -1760,3 +1760,159 @@ padding: 10px 20px;
 color: #069b11;
 margin: 0 0 10px 0;
 }
+
+.br_filter{
+	border-bottom: 1px solid #f1f1f1;
+    padding: 15px 10px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.br_filter_item_1{
+	float: left;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.br_filter_item_1 label{
+	font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+    float: left;
+}
+
+.slider {
+	float: left;
+	width:350px;
+	height:12px;
+	position:relative;
+	margin: 25px 17px;
+	padding:0 10px;
+	background: -webkit-linear-gradient(top, #787878, #a2a2a2);
+	border-radius: 5px;
+}
+
+.ui-slider .ui-slider-handle:before{
+		    content: attr(data);
+		    position: absolute;
+		    bottom: 100%;
+		    left: -15px;
+		    right: -15px;
+		    padding-bottom: 5px;
+		    text-align: center;
+		    font-size: 20px;
+		    font-weight: 800;
+	}
+
+.ui-slider .ui-slider-handle:hover {
+	border: none;
+}
+
+.br_filter_item h5{
+	font-weight: bold;
+    padding: 10px 0;
+    color: #145ec0;
+}
+
+.br_filter_item{
+	overflow: hidden;
+}
+
+.filter_submit{
+    float: right;
+    cursor: pointer;
+    font-size: 16px;
+    color: #3d4042;
+    text-decoration: none;
+    padding: 9px 26px;
+    margin: 0 4px 0 2px;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #889398;
+    border-right: 1px solid #889398;
+    border-left: 1px solid #cfd3d5;
+    border-radius: 3px;
+    background: #ebf0f1;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fcfcfc), to(#e4e8ec));
+    background: -moz-linear-gradient(#fcfcfc, #e4e8ec);
+    background: -o-linear-gradient(top, #fcfcfc, #e4e8ec);
+}
+
+.pleco-before{
+	border: 1px solid #c1c0c0;
+    float: left;
+    margin-top: 16px;
+    border-radius: 5px;
+    padding: 5px 0px;
+    width: 42px;
+    font-weight: bold;
+    text-align: center;
+}
+.pleco-after{
+	border: 1px solid #c1c0c0;
+    float: left;
+    margin-top: 16px;
+    border-radius: 5px;
+    padding: 5px 0px;
+    width: 42px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.filter_checkbox{
+	vertical-align: top;
+	margin: 0 3px 0 0;
+	width: 17px;
+	height: 17px;
+}
+
+.filter_checkbox + label{
+  cursor: pointer;
+}
+
+.filter_checkbox:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+
+.filter_checkbox:not(checked) + label {
+  position: relative; 
+  padding: 0 0 0 60px; 
+}
+
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.filter_checkbox:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  background: #CDD1DA;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.filter_checkbox:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
+}
+/* Меняем фон чекбокса, когда он включен. */
+.filter_checkbox:checked + label:before {
+  background: #9FD468;
+}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.filter_checkbox:checked + label:after {
+  left: 26px;
+}
+/* Показываем получение фокуса. */
+.filter_checkbox:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+}
