@@ -85,18 +85,20 @@ function kdv_hook_css(){
 
 add_action('wp_footer', 'kdv_hook_js');
 function kdv_hook_js(){
+    $config = get_option('fbp_config');
 	echo '<script type="text/javascript">	
      $( ".pleco" ).slider({
         animate: true, // Анимация ползунка
         range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
-        value: 100, // Значение по умолчанию.
-        min: 0, // Минимальная сумма.
-        max: 500, // Максимальная сумма.
-    	step: 25, // Шаг диапазона.
+        value: '.$config["fb_max_cr_plecho_first"].', // Значение по умолчанию.
+        min: '.$config["fb_max_cr_plecho_min"].', // Минимальная сумма.
+        max: '.$config["fb_max_cr_plecho_max"].', // Максимальная сумма.
+    	step: '.$config["fb_max_cr_plecho_step"].', // Шаг диапазона.
  
     // Вывод диапазона в поле input
     	      create: function() {
-        $(".pleco .ui-slider-handle").attr("data", 100);
+        $(".pleco .ui-slider-handle").attr("data", '.$config["fb_max_cr_plecho_first"].');
+        $("#pleco").attr("value", '.$config["fb_max_cr_plecho_first"].');
       },
             change: function(event, ui) {
             	$("#pleco").attr("value", ui.value);
@@ -111,14 +113,15 @@ function kdv_hook_js(){
 $( ".dipozit" ).slider({
         animate: true, // Анимация ползунка
         range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
-        value: 300, // Значение по умолчанию.
-        min: 0, // Минимальная сумма.
-        max: 1000, // Максимальная сумма.
-    	step: 25, // Шаг диапазона.
+        value: '.$config["fb_min_depozit_first"].', // Значение по умолчанию.
+        min: '.$config["fb_min_depozit_min"].', // Минимальная сумма.
+        max: '.$config["fb_min_depozit_max"].', // Максимальная сумма.
+        step: '.$config["fb_min_depozit_step"].', // Шаг диапазона.
  
     // Вывод диапазона в поле input
     	      create: function() {
-        $(".dipozit .ui-slider-handle").attr("data", 300);
+        $(".dipozit .ui-slider-handle").attr("data", '.$config["fb_min_depozit_first"].');
+        $("#dipozit").attr("value", '.$config["fb_min_depozit_first"].');
       },
             change: function(event, ui) {
             	$("#dipozit").attr("value", ui.value);
@@ -134,14 +137,15 @@ $( ".dipozit" ).slider({
      $( ".spred" ).slider({
         animate: true, // Анимация ползунка
         range: "min", // Фон пути ползунка, если это свойство убрать, то синей линии не будет.
-        value: 3, // Значение по умолчанию.
-        min: 0, // Минимальная сумма.
-        max: 5, // Максимальная сумма.
-    	step: 1, // Шаг диапазона.
+        value: '.$config["fb_min_spred_first"].', // Значение по умолчанию.
+        min: '.$config["fb_min_spred_min"].', // Минимальная сумма.
+        max: '.$config["fb_min_spred_max"].', // Максимальная сумма.
+        step: '.$config["fb_min_spred_step"].', // Шаг диапазона.
  
     // Вывод диапазона в поле input
     	      create: function() {
-        $(".spred .ui-slider-handle").attr("data", 3);
+        $(".spred .ui-slider-handle").attr("data", '.$config["fb_min_spred_first"].');
+        $("#spred").attr("value", '.$config["fb_min_spred_first"].');
       },
             change: function(event, ui) {
             	$("#spred").attr("value", ui.value);

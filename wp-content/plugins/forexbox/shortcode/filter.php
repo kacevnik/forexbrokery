@@ -12,23 +12,23 @@ global $user_ID, $themplate;
 		<div class="br_filter_body">
 			<div class="br_filter_item">
 				<h5>Максимальное кредитное плечо</h5>
-				<div class="pleco-before">0</div>
+				<div class="pleco-before">'.$config["fb_max_cr_plecho_min"].'</div>
 				<div class="slider pleco"></div>
-				<div class="pleco-after">500</div>
+				<div class="pleco-after">'.$config["fb_max_cr_plecho_max"].'</div>
 				<input type="hidden" value="" name="pleco" id="pleco"/>	
 			</div>
 			<div class="br_filter_item">
 				<h5>Минимальный депозит</h5>
-				<div class="pleco-before">0</div>
+				<div class="pleco-before">'.$config["fb_min_depozit_min"].'</div>
 				<div class="slider dipozit"></div>
-				<div class="pleco-after">1000</div>
+				<div class="pleco-after">'.$config["fb_min_depozit_max"].'</div>
 				<input type="hidden" value="" name="dipozit" id="dipozit"/>	
 			</div>
 			<div class="br_filter_item">
 				<h5>Минимальный спред</h5>
-				<div class="pleco-before">0</div>
+				<div class="pleco-before">'.$config["fb_min_spred_min"].'</div>
 				<div class="slider spred"></div>
-				<div class="pleco-after">5</div>
+				<div class="pleco-after">'.$config["fb_min_spred_max"].'</div>
 				<input type="hidden" value="" name="spred" id="spred"/>	
 			</div>
 			<div class="br_filter_item">
