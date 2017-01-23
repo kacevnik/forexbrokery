@@ -49,6 +49,13 @@ $fc = get_option('fbp_config');
 			forexbox_input('fb_min_spred_step','Минимальный спред (шаг) ',$fc['fb_min_spred_step']);
 			forexbox_input('fb_min_spred_first','Минимальный спред (начальное значение) ',$fc['fb_min_spred_first']);
 		?>
+		<tr>
+			<th><br></th>
+			<td></td>
+		</tr>
+		<?php
+			forexbox_text('fb_text_filter','Вступительный текст',$fc['fb_text_filter']);
+		?>
         <tr>
 		    <th>
 			    &nbsp;

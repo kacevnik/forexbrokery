@@ -33,6 +33,8 @@ if(current_user_can('administrator')){
 	$text['fb_min_spred_step'] = stripslashes($_POST['fb_min_spred_step']);
 	$text['fb_min_spred_first'] = stripslashes($_POST['fb_min_spred_first']);
 
+	$text['fb_text_filter'] = stripslashes($_POST['fb_text_filter']);
+
 	$text['loginrating'] = esc_html($_POST['loginrating']);
 	$text['logincomment'] = esc_html($_POST['logincomment']);
     update_option('fbp_config', $text);
