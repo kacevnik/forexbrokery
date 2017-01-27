@@ -130,7 +130,7 @@ function kdv_get_reiting($id){
 	}
 }
 
-function get_forex_home_table($page,$limit,$asc,$order,$search=''){
+function get_forex_home_table($page,$limit,$asc,$order,$search='',$plecho=0){
 global $wpdb;
 
 $inicio = ($page-1) * $limit;
@@ -198,6 +198,7 @@ $table .= '<div class="fbp_clear"></div>
 	</div>';
 	
 	if(strlen($search) > 0){  $where = "AND fname LIKE '%$search%'"; }
+	if($plecho != 0 && $plecho != ''){$plecho = "AND fname LIKE '%$search%'";}
 	
 	$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where");
     

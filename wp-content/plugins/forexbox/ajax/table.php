@@ -14,6 +14,7 @@ header('Content-Type: text/html; charset=utf-8');
 $pager = explode('fbps',strip_tags($_POST['page']));
 $lim = intval($_POST['limit']);
 $page = intval($pager[0]);
+$plecho = intval($_POST['plecho']);
 $asc = $pager[1];
 $order = $pager[2];
 $search = $pager[3];

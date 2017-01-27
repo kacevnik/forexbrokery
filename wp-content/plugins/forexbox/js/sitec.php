@@ -178,7 +178,7 @@ $(function(){
 	    return false;
 	});
 	
-	$('.pgntable a, a.hsorter, .pgntablelim a').live('click', function(){
+	$('.pgntable a, a.hsorter, .pgntablelim a, .filter_submit').live('click', function(){
 	    var page = $(this).attr('href').replace('#','');
 		var lim = $(this).attr('name');
         $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim});
