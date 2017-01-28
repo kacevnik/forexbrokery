@@ -36,7 +36,7 @@ if(get_option('user_reiting_'.$id)){
 			forexbox_inputbig('fadress',fbp_orili('Адрес',$distable['table1']['ftab5']),$fbp->fadress);
 			forexbox_inputbig('fplink','Партнёрская ссылка',$fbp->fplink);
 			forexbox_input('fminschet',fbp_orili('Минимальный размер счёта',$distable['table1']['ftab8']),$fbp->fminschet);
-			forexbox_doubleinput('fkrplot', 'fkrpldo', fbp_orili('Кредитное плечо',$distable['table1']['ftab9']), array('От','до'), $fbp->fkrplot,$fbp->fkrpldo);
+			forexbox_doubleinput('fkrplot', 'fkrpldo', fbp_orili('Кредитное плечо',$distable['table1']['ftab9']), array('От 1:','до 1:'), $fbp->fkrplot,$fbp->fkrpldo);
 			forexbox_input('fminsdelka',fbp_orili('Минимальная сделка',$distable['table1']['ftab10']),$fbp->fminsdelka);
 			forexbox_input('fspred',fbp_orili('Спред',$distable['table1']['ftab11']),$fbp->fspred);
 			forexbox_input('fcomiss',fbp_orili('Коммиссия',$distable['table1']['ftab12']),$fbp->fcomiss);

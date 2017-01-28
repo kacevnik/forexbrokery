@@ -285,7 +285,10 @@ $table .= '<div class="fbp_clear"></div>
 		$stattitle2 = fbp_orili('Торговая платформа',$distable['table1']['ftab2']);
 		$stattitle3 = fbp_orili('Торговые условия',$distable['table1']['ftab3']);
 		$stattitle4 = fbp_orili('Лицензия',$distable['table1']['ftab4']);
-		$stattitle5 = fbp_orili('Адрес',$distable['table1']['ftab5']);;
+		$stattitle5 = fbp_orili('Адрес',$distable['table1']['ftab5']);
+
+		if($fb->fkrplot != ''){$fkrplot = " от 1:".$fb->fkrplot;}else{$fkrplot = $fb->fkrplot;}
+		if($fb->fkrpldo != ''){$fkrpldo = " до 1:".$fb->fkrpldo;}else{$fkrpldo = $fb->fkrpldo;}
 		
 		    $table .='<div class="fbp_clear"></div>	
 		</div>
@@ -293,7 +296,7 @@ $table .= '<div class="fbp_clear"></div>
 		    <div class="fbpsmallinfovn">
 			    '. $fbpstatus .'
 				<div class="fbpoline"><span class="fbpobc_title">'. $stattitle2 .':</span> '. $fb->fplatform .'</div>
-				<div class="fbpoline"><span class="fbpobc_title">'. $stattitle3 .':</span> '. $fb->fminschet .'<!--$--> | от '. $fb->fkrplot .' до '. $fb->fkrpldo .' |  '. $fb->fminsdelka .' <!--лота--> | '. $fb->fspred .'</div>
+				<div class="fbpoline"><span class="fbpobc_title">'. $stattitle3 .':</span> '. $fb->fminschet .'$ |'. $fkrplot . $fkrpldo .' |  '. $fb->fminsdelka .' <!--лота--> | '. $fb->fspred .'</div>
 		        <div class="fbpoline"><span class="fbpobc_title">'. $stattitle4 .':</span> '. $fb->flicense .'</div>
 				<div class="fbpoline"><span class="fbpobc_title">'. $stattitle5 .':</span> '. $fb->fadress .'</div>';
 				

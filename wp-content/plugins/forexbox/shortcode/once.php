@@ -40,6 +40,9 @@ global $user_ID, $themplate;
 	if($fbid){
 	
 	if($fb->flogo){ $im = $fb->flogo; } else { $im = FBP_PLUGIN_URL.'images/standart.png';}	
+
+	if($fb->fkrplot != ''){$fkrplot = " от 1:".$fb->fkrplot;}else{$fkrplot = $fb->fkrplot;}
+	if($fb->fkrpldo != ''){$fkrpldo = " до 1:".$fb->fkrpldo;}else{$fkrpldo = $fb->fkrpldo;}
 	
 	$themplate .= '<div class="fbpo_title">'. $fb->fname .'</div>';
 	
@@ -86,7 +89,7 @@ global $user_ID, $themplate;
 	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle4.':</span> '. $fb->fplatform .'</div>
 			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle5.':</span> '. $fb->fsposobopl .'</div>
 			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle6.':</span> '. $fb->fminschet .'<!--$--> </div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle7.':</span> от '. $fb->fkrplot .' до '. $fb->fkrpldo .' </div>
+			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle7.':</span> '. $fkrplot . $fkrpldo .' </div>
 	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle8.':</span> '. $fb->fminsdelka .' <!--лота--> </div>
 	        <!--<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. get_sclonenie($fb->fspred,'% пунктов', '% пункта','% пунктов') .' </div>-->
 			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle9.':</span> от '. $fb->fspred .' </div>

@@ -194,6 +194,23 @@ function fbp_deactivation_cron() {
 }
 
 
+function kdv_return(){
+	global $wpdb;
+	$brokers = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix ."forex_broker");
+	foreach($brokers as $fb){
+		$res = explode(':',$fb->fkrplot);
+		$res = $res[1];
+		$res1 = explode(':',$fb->fkrpldo);
+		$res1 = $res1[1];
+		if($res){
+			$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET fkrplot='$res' WHERE id ='$fb->id'");
+		}
+		if($res1){
+			$up = $wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET fkrpldo='$res1' WHERE id ='$fb->id'");
+		}
+	}
+}
+kdv_return();
 
 add_action('activate_'. FBP_PLUGIN_NAME,'fbp_plugins_activate');
 function fbp_plugins_activate(){
