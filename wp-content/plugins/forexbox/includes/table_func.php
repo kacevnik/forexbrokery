@@ -130,7 +130,7 @@ function kdv_get_reiting($id){
 	}
 }
 
-function get_forex_home_table($page,$limit,$asc,$order,$search='',$plecho=-1, $dipozit=-1,$spred=-1){
+function get_forex_home_table($page,$limit,$asc,$order,$search='',$plecho=-1, $dipozit=-1,$spred=-1,$lec_sysec=0,$lec_fca=0,$lec_nfa=0,$lec_opit=0){
 global $wpdb;
 
 $inicio = ($page-1) * $limit;
@@ -198,17 +198,30 @@ $table .= '<div class="fbp_clear"></div>
 	</div>';
 	
 	if(strlen($search) > 0){  $where = "AND fname LIKE '%$search%'"; }
-	if($plecho != -1){$plecho = "AND fkrpldo<=".$plecho." AND fkrplot<=".$plecho;}else{$plecho = '';}
+	if($plecho != -1){$plecho = "AND fkrpldo<=".$plecho;}else{$plecho = '';}
 	if($dipozit != -1){$dipozit = "AND fminschet<=".$dipozit;}else{$dipozit = '';}
 	if($spred != -1){$spred = "AND fspred>=".$spred;}else{$spred = '';}
+
+
+	if($lec_sysec != 1 && $lec_sysec != 0){$lec_sysec = 0;}
+	if($lec_sysec != 0){$lec_sysec = "AND flicense_sysec=".$lec_sysec;}else{$lec_sysec = '';}
+
+	if($lec_fca != 1 && $lec_fca != 0){$lec_fca = 0;}
+	if($lec_fca != 0){$lec_fca = "AND flicense_fca=".$lec_fca;}else{$lec_fca = '';}
+
+	if($lec_nfa != 1 && $lec_nfa != 0){$lec_nfa = 0;}
+	if($lec_nfa != 0){$lec_nfa = "AND flicense_nfa=".$lec_nfa;}else{$lec_nfa = '';}
+
+	if($lec_opit != 1 && $lec_opit != 0){$lec_opit = 0;}
+	if($lec_opit != 0){$lec_opit = "AND fopit=".$lec_opit;}else{$lec_opit = '';}
 	
-	$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho");
+	$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit $spred $lec_sysec $lec_fca $lec_nfa $lec_opit");
     
 	if($count > 0){
 	
 	    $ci = $inicio;
 	
-	    $brokers = $wpdb->get_results("SELECT *, (fpotz+fnotz+footz) AS fotzivs FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit $spred ORDER BY $rorder $asc LIMIT $inicio, $limit");
+	    $brokers = $wpdb->get_results("SELECT *, (fpotz+fnotz+footz) AS fotzivs FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit $spred $lec_sysec $lec_fca $lec_nfa $lec_opit ORDER BY $rorder $asc LIMIT $inicio, $limit");
 	    foreach($brokers as $fb){ $ci++;
 		$fbid = $fb->id;
 		
@@ -366,12 +379,25 @@ $table = 'Показать на странице: <a href="#1fbpsdescfbpsfrating
 return $table;
 }
 
-function get_fbp_pagenavi_home($page,$limit,$asc,$orerby,$search='',$plecho=-1,$dipozit=-1,$spred=-1){
+function get_fbp_pagenavi_home($page,$limit,$asc,$orerby,$search='',$plecho=-1,$dipozit=-1,$spred=-1,$lec_sysec=-1){
 if($limit == 0){$limit = 10;}
 if(strlen($search) > 0){  $where = "AND fname LIKE '%$search%'"; }
 if($plecho != -1){$plecho = "AND fkrpldo<=".$plecho." AND fkrplot<=".$plecho;}else{$plecho = '';}
 if($dipozit != -1){$dipozit = "AND fminschet<=".$dipozit;}else{$dipozit = '';}
 if($spred != -1){$spred = "AND fspred>=".$spred;}else{$spred = '';}
+
+	if($lec_sysec != 1 && $lec_sysec != 0){$lec_sysec = 0;}
+	if($lec_sysec != 0){$lec_sysec = "AND flicense_sysec=".$lec_sysec;}else{$lec_sysec = '';}
+
+	if($lec_fca != 1 && $lec_fca != 0){$lec_fca = 0;}
+	if($lec_fca != 0){$lec_fca = "AND flicense_fca=".$lec_fca;}else{$lec_fca = '';}
+
+	if($lec_nfa != 1 && $lec_nfa != 0){$lec_nfa = 0;}
+	if($lec_nfa != 0){$lec_nfa = "AND flicense_nfa=".$lec_nfa;}else{$lec_nfa = '';}
+
+	if($lec_opit != 1 && $lec_opit != 0){$lec_opit = 0;}
+	if($lec_opit != 0){$lec_opit = "AND fopit=".$lec_opit;}else{$lec_opit = '';}
+	
 $table = '';
 global $wpdb;
 $pagina = intval($page); 
@@ -380,7 +406,7 @@ if (!$pagina) { $inicio=0; $pagina=1;
     $inicio = ($pagina - 1) * $limit;
 } 
 
-$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit $spred");
+$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit $spred $lec_sysec $lec_fca $lec_nfa $lec_opit");
 if($count > 0){
 $kol_str = ceil($count/$limit);
 } else {

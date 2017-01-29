@@ -184,23 +184,39 @@ $(function(){
 		var plecho = $('#pleco').attr('value');
 		var dipozit = $('#dipozit').attr('value');
 		var spred = $('#spred').attr('value');
+		var lec_sysec = 0;
+		var lec_fca = 0;
+		var lec_nfa = 0;
+		var lec_opit = 0;
+		if($('#lec_sysec').attr('checked') == 'checked'){lec_sysec = 1;}
+		if($('#lec_fca').attr('checked') == 'checked'){lec_fca = 1;}
+		if($('#lec_nfa').attr('checked') == 'checked'){lec_nfa = 1;}
+		if($('#lec_opit').attr('checked') == 'checked'){lec_opit = 1;}
 		if(!plecho){plecho = -1;}
-        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});	    
-	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});	    
+		if(!dipozit){dipozit = -1;}
+		if(!spred){spred = -1;}
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});	    
 	
 	    return false;
 	});	
 
 	$('.filter_submit').live('click', function(){
 	    var page ='1fbpsdescfbpsfratingfbps';
-		var lim = $('.fbp_pagenavileft a').attr('name');
+		var lim = 10;
 		var plecho = $('#pleco').attr('value');
 		var dipozit = $('#dipozit').attr('value');
 		var spred = $('#spred').attr('value');
-        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});	    
-	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred});	    
+		var lec_sysec = 0;
+		var lec_fca = 0;
+		var lec_nfa = 0;
+		if($('#lec_sysec').attr('checked') == 'checked'){lec_sysec = 1;}
+		if($('#lec_fca').attr('checked') == 'checked'){lec_fca = 1;}
+		if($('#lec_nfa').attr('checked') == 'checked'){lec_nfa = 1;}
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit, spred:spred, lec_sysec:lec_sysec, lec_nfa:lec_nfa, lec_fca:lec_fca});	    
 	
 	    return false;
 	});		
