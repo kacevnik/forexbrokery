@@ -23,7 +23,10 @@ if(current_user_can('administrator')){
     $narr['fnews']= fbp_cleared_post($_POST['fnews']);
     $narr['fstatus']= intval($_POST['fstatus']);
     $narr['fgod']= intval($_POST['fgod']);
-    $narr['flicense']= fbp_cleared_post($_POST['flicense']);
+    $narr['flicense_sysec']= intval($_POST['flicense_sysec']);
+    $narr['flicense_fca']= intval($_POST['flicense_fca']);
+    $narr['flicense_nfa']= intval($_POST['flicense_nfa']);
+    $narr['fopit']= intval($_POST['fopit']);
     $narr['fplatform']= fbp_cleared_post($_POST['fplatform']);
     $narr['fsposobopl']= fbp_cleared_post($_POST['fsposobopl']);
     $narr['fdescription']= stripslashes($_POST['fdescription']);
