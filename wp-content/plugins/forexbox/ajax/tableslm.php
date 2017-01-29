@@ -16,9 +16,10 @@ $lim = intval($_POST['limit']);
 $page = intval($pager[0]);
 $asc = $pager[1];
 $plecho = intval($_POST['plecho']);
+$dipozit= intval($_POST['dipozit']);
 $order = $pager[2];
 $search = $pager[3];
 
-echo get_fbp_pagina_home($lim, $search, $plecho);
+echo get_fbp_pagina_home($lim, $search, $plecho, $dipozit);
 
 ?>

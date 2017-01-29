@@ -15,11 +15,12 @@ $pager = explode('fbps',strip_tags($_POST['page']));
 $lim = intval($_POST['limit']);
 $page = intval($pager[0]);
 $plecho = intval($_POST['plecho']);
+$dipozit= intval($_POST['dipozit']);
 $asc = $pager[1];
 $order = $pager[2];
 $search = $pager[3];
 
-echo get_fbp_pagenavi_home($page,$lim,$asc,$order,$search,$plecho);
+echo get_fbp_pagenavi_home($page,$lim,$asc,$order,$search,$plecho,$dipozit);
 
 
 ?>

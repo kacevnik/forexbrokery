@@ -130,7 +130,7 @@ function kdv_get_reiting($id){
 	}
 }
 
-function get_forex_home_table($page,$limit,$asc,$order,$search='',$plecho=-1){
+function get_forex_home_table($page,$limit,$asc,$order,$search='',$plecho=-1, $dipozit=-1){
 global $wpdb;
 
 $inicio = ($page-1) * $limit;
@@ -199,6 +199,7 @@ $table .= '<div class="fbp_clear"></div>
 	
 	if(strlen($search) > 0){  $where = "AND fname LIKE '%$search%'"; }
 	if($plecho != -1){$plecho = "AND fkrpldo<=".$plecho." AND fkrplot<=".$plecho;}else{$plecho = '';}
+	if($dipozit != -1){$dipozit = "AND fminschet<=".$dipozit;}else{$dipozit = '';}
 	
 	$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho");
     
@@ -206,7 +207,7 @@ $table .= '<div class="fbp_clear"></div>
 	
 	    $ci = $inicio;
 	
-	    $brokers = $wpdb->get_results("SELECT *, (fpotz+fnotz+footz) AS fotzivs FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho ORDER BY $rorder $asc LIMIT $inicio, $limit");
+	    $brokers = $wpdb->get_results("SELECT *, (fpotz+fnotz+footz) AS fotzivs FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit ORDER BY $rorder $asc LIMIT $inicio, $limit");
 	    foreach($brokers as $fb){ $ci++;
 		$fbid = $fb->id;
 		
@@ -364,10 +365,11 @@ $table = 'Показать на странице: <a href="#1fbpsdescfbpsfrating
 return $table;
 }
 
-function get_fbp_pagenavi_home($page,$limit,$asc,$orerby,$search='',$plecho=-1){
+function get_fbp_pagenavi_home($page,$limit,$asc,$orerby,$search='',$plecho=-1,$dipozit=-1){
 if($limit == 0){$limit = 10;}
 if(strlen($search) > 0){  $where = "AND fname LIKE '%$search%'"; }
 if($plecho != -1){$plecho = "AND fkrpldo<=".$plecho." AND fkrplot<=".$plecho;}else{$plecho = '';}
+if($dipozit != -1){$dipozit = "AND fminschet<=".$dipozit;}else{$dipozit = '';}
 $table = '';
 global $wpdb;
 $pagina = intval($page); 
@@ -376,7 +378,7 @@ if (!$pagina) { $inicio=0; $pagina=1;
     $inicio = ($pagina - 1) * $limit;
 } 
 
-$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho");
+$count = $wpdb->query("SELECT id FROM ". $wpdb->prefix ."forex_broker WHERE fvkl='1' AND disablertrue='1' $where $plecho $dipozit");
 if($count > 0){
 $kol_str = ceil($count/$limit);
 } else {

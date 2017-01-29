@@ -182,10 +182,11 @@ $(function(){
 	    var page = $(this).attr('href').replace('#','');
 		var lim = $(this).attr('name');
 		var plecho = $('#pleco').attr('value');
+		var dipozit = $('#dipozit').attr('value');
 		if(!plecho){plecho = -1;}
-        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho});	    
-	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho});	    
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});	    
 	
 	    return false;
 	});	
@@ -194,9 +195,10 @@ $(function(){
 	    var page ='1fbpsdescfbpsfratingfbps';
 		var lim = $('.fbp_pagenavileft a').attr('name');
 		var plecho = $('#pleco').attr('value');
-        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho});	    
-	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho});	    
+		var dipozit = $('#dipozit').attr('value');
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho, dipozit:dipozit});	    
 	
 	    return false;
 	});		
