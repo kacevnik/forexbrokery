@@ -29,7 +29,11 @@ if(get_option('user_reiting_'.$id)){
 			forexbox_inputbig('fuserreiting','Рейтинг',$reiting, '  Реальный рейтинг: '.real_reiting($fbpid));
 			forexbox_select('fstatus',fbp_orili('Статус',$distable['table1']['ftab1']),array('0'=>'нет','1'=>'новый','2'=>'рекомендуемый'),$fbp->fstatus);
 			forexbox_select_god('fgod',fbp_orili('Год основания',$distable['table1']['ftab6']),$fbp->fgod);
-			forexbox_inputbig('flicense',fbp_orili('Лицензия',$distable['table1']['ftab4']),$fbp->flicense);
+			//forexbox_inputbig('flicense',fbp_orili('Лицензия',$distable['table1']['ftab4']),$fbp->flicense);
+			forexbox_select('flicense_sysec',fbp_orili('Лицензия SySec','Лицензия SySec'),array('0'=>'нет','1'=>'да'),$fbp->flicense_sysec);
+			forexbox_select('flicense_fca',fbp_orili('Лицензия FCA','Лицензия FCA'),array('0'=>'нет','1'=>'да'),$fbp->flicense_fca);
+			forexbox_select('flicense_nfa',fbp_orili('Лицензия NFA','Лицензия NFA'),array('0'=>'нет','1'=>'да'),$fbp->flicense_nfa);
+			forexbox_select('fopit',fbp_orili('Есть опыт, для фильтра?','Есть опыт, для фильтра?'),array('0'=>'нет','1'=>'да'),$fbp->fopit);
 			forexbox_inputbig('fplatform',fbp_orili('Торговая платформа',$distable['table1']['ftab2']),$fbp->fplatform);
 			forexbox_inputbig('fsposobopl',fbp_orili('Способы оплаты',$distable['table1']['ftab7']),$fbp->fsposobopl);
 			forexbox_text('fdescription',fbp_orili('Описание',$distable['table1']['ftab14']),$fbp->fdescription);
