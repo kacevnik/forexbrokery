@@ -15,9 +15,10 @@ $pager = explode('fbps',strip_tags($_POST['page']));
 $lim = intval($_POST['limit']);
 $page = intval($pager[0]);
 $asc = $pager[1];
+$plecho = intval($_POST['plecho']);
 $order = $pager[2];
 $search = $pager[3];
 
-echo get_fbp_pagina_home($lim, $search);
+echo get_fbp_pagina_home($lim, $search, $plecho);
 
 ?>

@@ -178,12 +178,25 @@ $(function(){
 	    return false;
 	});
 	
-	$('.pgntable a, a.hsorter, .pgntablelim a, .filter_submit').live('click', function(){
+	$('.pgntable a, a.hsorter, .pgntablelim a').live('click', function(){
 	    var page = $(this).attr('href').replace('#','');
 		var lim = $(this).attr('name');
-        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim});
-        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim});	    
-	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim});	    
+		var plecho = $('#pleco').attr('value');
+		if(!plecho){plecho = -1;}
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho});	    
+	
+	    return false;
+	});	
+
+	$('.filter_submit').live('click', function(){
+	    var page ='1fbpsdescfbpsfratingfbps';
+		var lim = $('.fbp_pagenavileft a').attr('name');
+		var plecho = $('#pleco').attr('value');
+        $("#forex_home_table").load("<?php echo FBP_PLUGIN_URL;?>ajax/table.php", {page: page, limit: lim, plecho:plecho});
+        $(".fbp_pagenavileft").load("<?php echo FBP_PLUGIN_URL;?>ajax/tablespn.php", {page: page, limit: lim, plecho:plecho});	    
+	    $(".fbp_pagenaviright").load("<?php echo FBP_PLUGIN_URL;?>ajax/tableslm.php", {page: page, limit: lim, plecho:plecho});	    
 	
 	    return false;
 	});		

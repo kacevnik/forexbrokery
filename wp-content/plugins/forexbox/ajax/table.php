@@ -20,7 +20,7 @@ $order = $pager[2];
 $search = $pager[3];
 
 
-echo get_forex_home_table($page,$lim,$asc,$order,$search);
+echo get_forex_home_table($page,$lim,$asc,$order,$search,$plecho);
 
 
 ?>
