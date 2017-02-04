@@ -19,7 +19,7 @@ $id=$au->id;
 	if($au->crating==0){ $a=1; $b=0; $c=0;} elseif($au->crating==1) { $a=0; $b=1; $c=0;} else { $a=0; $b=0; $c=1; }
 	$wpdb->query("UPDATE ".$wpdb->prefix."forex_broker SET `fnotz`=`fnotz`+$a, `fpotz`=`fpotz`+$b, `footz`=`footz`+$c WHERE id = '$fb_id'");
     
-	$url = fbp_one_link_otz($fb->fslug);
+	$url = site_url()."/fbpotziv/".$fb->fslug;
     
 	header( "Location: $url" );
 	exit;
