@@ -35,7 +35,7 @@ global $user_ID, $themplate;
 				<div class="br_filter_item_1">
 					<h5>Наличие лицензии</h5>
 					<input type="checkbox" name="lec_sysec" id="lec_sysec" class="filter_checkbox"/>
-					<label for="lec_sysec"> SySec</label>
+					<label for="lec_sysec"> CySec</label>
 					<input type="checkbox" name="lec_fca" id="lec_fca" class="filter_checkbox"/>
 					<label for="lec_fca"> FCA</label>
 					<input type="checkbox" name="lec_nfa" id="lec_nfa" class="filter_checkbox"/>

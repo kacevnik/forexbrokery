@@ -42,7 +42,8 @@ if(current_user_can('administrator')){
     $narr['fmobile']= intval($_POST['fmobile']);
     $narr['fpartner']= intval($_POST['fpartner']);
     $narr['fdovupr']= intval($_POST['fdovupr']);
-    $narr['fbonus']= fbp_cleared_post($_POST['fbonus']); 
+    $narr['fbonus']= fbp_cleared_post($_POST['fbonus']);
+    $narr['fdhtml']= $_POST['fdhtml'];  
     $narr['fvkl']= intval($_POST['fvkl']);
    
     if($narr['fname']){

@@ -25,7 +25,16 @@ global $user_ID, $themplate;
 	$thetitle15 = fbp_orili('Партнёрская программа',$distable['table1']['ftab17']);
 	$thetitle16 = fbp_orili('Доверительное управление',$distable['table1']['ftab18']);
 	$thetitle18 = fbp_orili('Бонус',$distable['table1']['ftab19']);	
-	
+
+	$lic = '';
+	if($fb->flicense_sysec == 1){$lic = 'CySEC';}
+	if($fb->flicense_fca == 1){$lic .= ' FCA';}
+	if($fb->flicense_nfa == 1){$lic .= ' NFA';}
+
+	if($lic != ''){$showLic = '<div class="fbpoline"><span class="fbpobc_title">'.$thetitle3.':</span> '. $lic .'</div>';}else{
+		$showLic = '';
+	}
+
 	$fstatus = $fb->fstatus;
 	if($fstatus==1){
 	$fbpstatus = '<div class="fbpoline"><span class="fbpobc_title">'.$thetitle1.':</span> Новый</div>';
@@ -85,7 +94,7 @@ global $user_ID, $themplate;
 	    <div class="fbpohright" style="padding: 15px 10px;">
 '. $fbpstatus .'
 	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle2.':</span> '. $fb->fgod .'</div>
-			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle3.':</span> '. $fb->flicense .'</div>
+	        '.$showLic.'
 	        <div class="fbpoline"><span class="fbpobc_title">'.$thetitle4.':</span> '. $fb->fplatform .'</div>
 			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle5.':</span> '. $fb->fsposobopl .'</div>
 			<div class="fbpoline"><span class="fbpobc_title">'.$thetitle6.':</span> '. $fb->fminschet .'<!--$--> </div>
@@ -111,7 +120,7 @@ global $user_ID, $themplate;
 		</div>
         <div class="fbp_clear"></div>		
 	</div>
-	
+	'.$fb->fdhtml.'
 	<div class="fbpo_body">	
 		    <div class="fbp_lastotz">Последние отзывы</div>';
 			
