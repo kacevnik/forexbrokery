@@ -45,6 +45,12 @@ $pager = FBP_PLUGIN_DIR . "/".$page.".php";
     }
 }
 
+function changeSeoTitle( $title) {
+    $title = 'New Page Title';
+    return $title;
+}
+add_filter( 'wp_title', 'changeSeoTitle' );
+
 add_action( 'wp_enqueue_scripts', 'kdv_my_scripts_main' );
 function kdv_my_scripts_main(){
 	wp_enqueue_script( 'kdv_main', plugins_url('js/main.js', __FILE__));
@@ -168,6 +174,7 @@ $( ".dipozit" ).slider({
 
      </script>';
 }
+
 
 fbp_template('functions');
 fbp_template('includes/admin_func');

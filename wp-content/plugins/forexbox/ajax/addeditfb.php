@@ -44,6 +44,9 @@ if(current_user_can('administrator')){
     $narr['fdovupr']= intval($_POST['fdovupr']);
     $narr['fbonus']= fbp_cleared_post($_POST['fbonus']);
     $narr['fdhtml']= $_POST['fdhtml'];  
+    $narr['fb_seo_title']= fbp_cleared_post($_POST['fb_seo_title']);
+    $narr['fb_seo_keys']= fbp_cleared_post($_POST['fb_seo_keys']);
+    $narr['fb_seo_desc']= fbp_cleared_post($_POST['fb_seo_desc']);
     $narr['fvkl']= intval($_POST['fvkl']);
    
     if($narr['fname']){

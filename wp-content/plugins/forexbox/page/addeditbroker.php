@@ -51,6 +51,9 @@ if(get_option('user_reiting_'.$id)){
 			forexbox_inputbig('fbonus',fbp_orili('Бонус',$distable['table1']['ftab19']),$fbp->fbonus);
 			forexbox_select('fvkl','Отключен',array('1'=>'нет','0'=>'да'),$fbp->fvkl);
 			forexbox_text('fdhtml',fbp_orili('Произвольный код','Произвольный код'),$fbp->fdhtml);
+			forexbox_inputbig('fb_seo_title',fbp_orili('SEO Title','SEO Title'),$fbp->fb_seo_title);
+			forexbox_inputbig('fb_seo_keys',fbp_orili('SEO keys(ключи)','SEO keys(ключи)'),$fbp->fb_seo_keys);
+			forexbox_text('fb_seo_desc',fbp_orili('SEO description(описание)','SEO description(описание)'),$fbp->fb_seo_desc);
 		?>	
         <tr>
 		    <th>

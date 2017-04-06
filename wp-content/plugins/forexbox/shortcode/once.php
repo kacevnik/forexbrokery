@@ -5,6 +5,7 @@ global $user_ID, $themplate;
     global $wpdb;
 	$fb = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."forex_broker WHERE fslug='$fname' AND disablertrue='1' AND fvkl='1'");
 	$fbid = $fb->id;
+
 	
 	$distable = get_option('fbp_distable');
 	$thetitle1 = fbp_orili('Статус',$distable['table1']['ftab1']);
